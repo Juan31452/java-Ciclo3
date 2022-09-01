@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 
-//@Data
+@Data
 @Entity
 @Table(name = "usuarios")
 public class Usuarios implements Serializable 
@@ -18,7 +18,7 @@ public class Usuarios implements Serializable
     
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer Idusuario;
+  private Long Idusuario;
   @Column        
   private String npasaporte;
   @Column
@@ -41,11 +41,11 @@ public class Usuarios implements Serializable
         return npasaporte;
     }
 
-    public Integer getIdusuario() {
+    public Long getIdusuario() {
         return Idusuario;
     }
 
-    public void setIdusuario(Integer Idusuario) {
+    public void setIdusuario(Long Idusuario) {
         this.Idusuario = Idusuario;
     }
 

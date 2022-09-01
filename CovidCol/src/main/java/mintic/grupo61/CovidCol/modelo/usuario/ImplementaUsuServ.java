@@ -22,5 +22,20 @@ public class ImplementaUsuServ implements UsuarioServicio
 		
 		return usuarioDataSource;
     }
+
+    @Override
+    public Usuarios guardarUsuario(Usuarios usuario) {
+       return this.usuariointerface.save(usuario);
+    }
+
+    @Override
+    public Usuarios actualizarUsuario(Usuarios usuario) {
+       return this.usuariointerface.save(usuario);
+    }
+
+    @Override
+    public void eliminarUsuario(long Idusuario) {
+        this.usuariointerface.deleteById(Idusuario);
+    }
     
 }
