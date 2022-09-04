@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import mintic.grupo61.CovidCol.modelo.usuario.UsuarioInterface;
+import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //Controlador que manipula el flujo de los servicios rest del microservicio de Covidcol.
@@ -28,14 +30,20 @@ public class Controlador {
             modelo.addAttribute("lista", usuarioInterface.findAll());
             return "usuarios";
         }
-        // //guardar
-        // @PostMapping
-        // @RequestMapping(value = "guardarusuarios", method = RequestMethod.POST)
-	// public ResponseEntity<?> guardarUsuario(@RequestBody Usuarios usuarios)
-        // {
-        //     Usuarios Usuarioguardado = this.usuarioservicioImpl.guardarUsuario(usuarios);
-        //     return ResponseEntity.status(HttpStatus.CREATED).body(Usuarioguardado);
-        // }
+        
+        @GetMapping("/adicionar")  //http:localhost:8080/vacunas/adicionar
+      	public String adiciona ()
+        {         
+            return "adicionar";
+        }
+
+        @PostMapping("/guardar")  
+        public String guardar(Usuarios usuarios)
+        {
+            usuarioInterface.save(usuarios);
+            return "redirect:/vacunas"; 
+        }        
+        
         
         // //actualizar
         // @PutMapping
