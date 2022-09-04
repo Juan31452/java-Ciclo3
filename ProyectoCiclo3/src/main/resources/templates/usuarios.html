@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <title>USUARIOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>"LISTA USUARIOS</h1>
+            
+            <br>
+   <table class="mitabla">
+    <thead>
+         <tr>
+            <th>Pasaporte</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Nacionalidad</th>
+            <th>eps</th>
+         </tr>
+    </thead>
+    <tbody>
+        <tr th:each="usuario : ${lista}">
+                  <th th:text="${usuario.npasaporte}"></th>
+                  <th th:text="${usuario.correo}"></th>
+                  <th th:text="${usuario.telefono}"></th>
+                  <th th:text="${usuario.nacionalidad}"></th>
+                  <th  th:text="${usuario.eps}"></th>
+                      
+       </tr>
+    </tbody>
+   </table>
+        </div>
+    </body>
+</html>
