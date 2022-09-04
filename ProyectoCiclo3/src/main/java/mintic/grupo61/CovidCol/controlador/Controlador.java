@@ -1,4 +1,4 @@
-package mintic.grupo61.CovidCol;
+package mintic.grupo61.CovidCol.controlador;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
