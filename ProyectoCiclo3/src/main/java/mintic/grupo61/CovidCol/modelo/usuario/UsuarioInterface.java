@@ -2,9 +2,11 @@
 package mintic.grupo61.CovidCol.modelo.usuario;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
+import org.springframework.data.jpa.repository.Query;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioInterface extends CrudRepository<Usuarios, Long> 
 {
   @Transactional
-  Optional<Usuarios> findBynpasaporte(String npasaporte);
-   
+  //Optional<Usuarios> findBycorreo(String correo);
+  @Query ("select u from Usuarios u where u.correo =: correo")
+  List<Usuarios> findBycorreo(String correo);
+  
 }

@@ -1,12 +1,22 @@
-<html>
+<html lang ="en" xmlns:th=http://www.thymeleaf.org>
     <head>
-        <title>TODO supply a title</title>
+        <title>INICIO SESION</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div>
-            <h1>"Hola mundo desde html</h1>
+            <h1>Crear Usuarios</h1>
+            <form method="GET" th:action="@{/usuarioactivo}" >
+                CORREO:</br> 
+                <input type="text" class="formulario" id="correo" name="correo"></br>
+                CONTRASEÑA:</br> 
+                <input type="text" class="formulario" id="contraseña" name="contraseña"></br>
+                
+                <button>Ingresar</button></br>
+                <h5>Si eres nuevo <a th:href="@{/adicionar}" >Registrate aqui</a>.</h5>
+                
+      </form>
         </div>
     </body>
 </html>
