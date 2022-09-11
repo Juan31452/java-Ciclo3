@@ -63,7 +63,7 @@ public class Controlador {
     public String guardar(Usuarios usuarios)
     {
         usuarioInterface.save(usuarios);
-        return "redirect:/vacunas"; 
+        return "redirect:/lista"; 
     }        
         
     
