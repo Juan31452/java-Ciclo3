@@ -42,13 +42,16 @@ public class Controlador {
         {
           
             modelo.addAttribute ("mensaje1", mensaje1);
+           
         }else
         {
             modelo.addAttribute ("lista1", milista1);
+                
         }   
-        return "usuarioactivo"; 
-        
+         
+       return "usuarioactivo";
     }
+    
     
   
         
