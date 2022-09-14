@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 
 @RequestMapping("/")   // http:localhost:8080/
 public class Controlador {
-    private final Logger log = LoggerFactory.getLogger(Usuarios.class);
+    
     @Autowired
     private UsuarioInterface usuarioInterface;
    
