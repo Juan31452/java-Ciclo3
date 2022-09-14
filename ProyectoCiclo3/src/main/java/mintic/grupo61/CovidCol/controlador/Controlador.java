@@ -1,9 +1,6 @@
 package mintic.grupo61.CovidCol.controlador;
 
-import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import mintic.grupo61.CovidCol.modelo.usuario.UsuarioDao;
 import mintic.grupo61.CovidCol.modelo.usuario.UsuarioInterface;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
@@ -11,11 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 //Controlador que manipula el flujo de los servicios rest del microservicio de Covidcol.
 
