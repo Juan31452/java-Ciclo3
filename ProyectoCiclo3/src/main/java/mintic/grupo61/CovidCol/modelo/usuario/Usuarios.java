@@ -32,5 +32,8 @@ public class Usuarios implements Serializable
   @Column
   private String eps;
 
+
+
  
 }
+

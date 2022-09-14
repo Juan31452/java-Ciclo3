@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.Query;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -17,7 +19,11 @@ public interface UsuarioInterface extends CrudRepository<Usuarios, Long>
 {
   @Transactional
   //Optional<Usuarios> findBycorreo(String correo);
-  @Query ("select u from Usuarios u where u.correo =: correo")
-  List<Usuarios> findBycorreo(String correo);
+  //List<Usuarios> findBycorreoAndcontraseña(String correo, String contraseña);
+  @Query (value = "select u.Idusuario,u.npasaporte,u.correo,u.contraseña,u.telefono,u.nacionalidad,u.eps"
+          + "  from Usuarios u where u.correo =:micorreo and contraseña=:micontraseña", nativeQuery = true)
+  public List<Usuarios> consultausuario(@Param("micorreo")  String correo,@Param("micontraseña") String contraseña);
   
 }
+
+

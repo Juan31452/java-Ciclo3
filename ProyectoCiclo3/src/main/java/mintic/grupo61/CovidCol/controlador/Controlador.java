@@ -1,6 +1,9 @@
 package mintic.grupo61.CovidCol.controlador;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import mintic.grupo61.CovidCol.modelo.usuario.UsuarioDao;
 import mintic.grupo61.CovidCol.modelo.usuario.UsuarioInterface;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
@@ -32,21 +35,31 @@ public class Controlador {
     }
     
     //usuariover
-    @GetMapping("/usuarioactivo")
-    public String usuariover(Model modelo)  //,@PathVariable String correo  
+    @GetMapping("/usuariover")
+    public String usuariover(String correo ,String contraseña , Model modelo)  //,@PathVariable String correo  
     {
          String mensaje = "Hola mundo con thymeleaf";
-        //List<Usuarios> usuario = usuarioInterface.findBycorreoAndcontrsaeña(correo,contraseña);
-        //log.info("Datos usuario,{}",usuario);
+         String mensaje1="Usuario o clave invalidad";
         
-        //modelo.addAttribute("usuariounico",usuarioInterface.findBycorreo(correo));
         modelo.addAttribute ("mensaje", mensaje);
-        return "usuarioactivo";    
+        modelo.addAttribute ("correo", correo);
+        List<Usuarios> milista1 = usuarioInterface.consultausuario(correo, contraseña);
+        if(milista1 == null || milista1.size() == 0)
+        {
+          
+            modelo.addAttribute ("mensaje1", mensaje1);
+        }else
+        {
+            modelo.addAttribute ("lista1", milista1);
+        }   
+        return "usuarioactivo"; 
+        
     }
+    
   
         
     //listar
-    @GetMapping("/lista")
+    @GetMapping("/lista")//http:localhost:8080/lista
     public String listar(Model modelo)
     {
         modelo.addAttribute("lista", usuarioInterface.findAll());
