@@ -1,23 +1,49 @@
 <html lang ="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:fragment="head">
         <title>INICIO SESION</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
+        crossorigin="anonymous">
+
     </head>
     <body>
-        <div>
-            <h1>Crear Usuarios</h1>
-            
-            <form method="GET" th:action="@{/usuariover}" >
-                CORREO:</br> 
-                <input type="text" class="formulario" id="correo" name="correo"></br>
-                CONTRASEÑA:</br> 
-                <input type="text" class="formulario" id="contraseña" name="contraseña"></br>
+        <div class ="container">
+            <h1 class="text-center">Crear Usuarios</h1>
+            <p th:text = "${mensaje1}" class="alert" >mensaje</p>
+            <div class=class="abs-center">
                 
-                <button>Ingresar</button></br>
-                <h5>Si eres nuevo <a th:href="@{/adicionar}" >Registrate aqui</a>.</h5>
-                
-      </form>
+                <form method="POST" th:action="@{/usuariover}" class="border p-3 form" >
+                   <div class="form-group">
+                      CORREO:</br> 
+                      <input type="text" class="formulario" id="correo" name="correo"></br>
+                   </div>  
+                   <div class="form-group"> 
+                      CONTRASEÑA:</br> 
+                      <input type="text" class="formulario" id="contraseña" name="contraseña"></br></br> 
+                    </div> 
+                   
+                    <div class="box-footer"> 
+                      <button class="btn btn-Success">Ingresar</button></br>
+                    </div>      
+                    <h5>Si eres nuevo <a th:href="@{/adicionar}" >Registrate aqui</a>.</h5>
+                </form>
+            </div>         
         </div>
+        
+        <!-- jQuery and JS bundle w/ Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-
+        DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" 
+        crossorigin="anonymous"></script>
+
     </body>
 </html>
