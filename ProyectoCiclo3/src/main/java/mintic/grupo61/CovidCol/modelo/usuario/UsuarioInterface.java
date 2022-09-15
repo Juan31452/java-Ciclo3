@@ -20,7 +20,7 @@ public interface UsuarioInterface extends CrudRepository<Usuarios, Long>
   @Transactional
   //Optional<Usuarios> findBycorreo(String correo);
   //List<Usuarios> findBycorreoAndcontraseña(String correo, String contraseña);
-  @Query (value = "select u.Idusuario,u.npasaporte,u.correo,u.contraseña,u.telefono,u.nacionalidad,u.eps"
+  @Query (value = "select u.Idusuario,u.nombres,u.apellidos,u.npasaporte,u.fecha_nacimiento,u.dpto_residencia"
           + "  from Usuarios u where u.correo =:micorreo and contraseña=:micontraseña", nativeQuery = true)
   public List<Usuarios> consultausuario(@Param("micorreo")  String correo,@Param("micontraseña") String contraseña);
   

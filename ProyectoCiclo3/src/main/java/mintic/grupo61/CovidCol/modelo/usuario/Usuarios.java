@@ -31,6 +31,8 @@ public class Usuarios implements Serializable
   @Column        
   private String dpto_residencia;
   @Column        
+  private String ciudad_residencia;  
+  @Column        
   private String direccion;
   @Column        
   private String tipo_documento;
