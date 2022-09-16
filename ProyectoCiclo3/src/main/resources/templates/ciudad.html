@@ -1,0 +1,35 @@
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>LISTA VIAJE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>LISTA VIAJE</h1>
+            <br>
+               <table class="mitabla">
+                <thead>
+                     <tr>
+                        <th>ID</th>
+                        <th>Ciudad Actual</th>
+                        <th>Ciudad Destino</th>
+                        <th>Numero Vacunas</th>
+                        <th>Sintomas</th>
+                        <th>Idusuario</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="ciudad : ${listaciudad}">
+                        <th th:text="${ciudad.Idciudad}"></th>
+                        <th th:text="${ciudad.ciudad_actual}"></th>
+                        <th th:text="${ciudad.ciudad_destino}"></th>
+                        <th th:text="${ciudad.numero_vacunas}"></th>
+                        <th th:text="${ciudad.sintomas}"></th>
+                        <th th:text="${ciudad.Idusuario}"></th>                                  
+                   </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

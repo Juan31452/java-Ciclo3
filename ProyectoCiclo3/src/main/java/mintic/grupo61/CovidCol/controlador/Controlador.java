@@ -1,6 +1,8 @@
 package mintic.grupo61.CovidCol.controlador;
 
 import java.util.List;
+import mintic.grupo61.CovidCol.modelo.ciudad.Ciudad;
+import mintic.grupo61.CovidCol.modelo.ciudad.CiudadInterface;
 import mintic.grupo61.CovidCol.modelo.usuario.UsuarioInterface;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
@@ -10,8 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 //Controlador que manipula el flujo de los servicios rest del microservicio de Covidcol.
 
@@ -22,7 +22,9 @@ public class Controlador {
     
     @Autowired
     private UsuarioInterface usuarioInterface;
-   
+    @Autowired
+    private CiudadInterface ciudadInterface;
+    
     //ingresar
     @GetMapping("")  //http:localhost:8080/
     public String ingresar()
@@ -56,8 +58,6 @@ public class Controlador {
        
     }
     
-    
-  
         
     //listar
     @GetMapping("/lista")//http:localhost:8080/lista
@@ -78,8 +78,23 @@ public class Controlador {
     {
         usuarioInterface.save(usuarios);
         return "redirect:/lista"; 
-    }        
+    }
+    
+    
+    @PostMapping("/guardarciudad")  
+    public String guardarciudad(Ciudad ciudad)
+    {
+        ciudadInterface.save(ciudad);
+        return "redirect:/listaciudad"; 
+    }
         
+    //listar
+    @GetMapping("/listaciudad")//http:localhost:8080/listaciudad
+    public String listarciudad(Model modelo)
+    {
+        modelo.addAttribute("listaciudad", ciudadInterface.findAll());
+        return "ciudad";
+    }
     
 }    
        

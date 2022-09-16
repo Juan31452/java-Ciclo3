@@ -14,6 +14,7 @@
                <table class="mitabla">
                 <thead>
                    <tr>
+                        <th>ID</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Pasaporte</th>
@@ -23,17 +24,33 @@
                 </thead>
                 <tbody>
                     <tr th:each="usuario : ${lista1}">
-                              <th th:text="${usuario.nombres}"></th>
-                              <th th:text="${usuario.apellidos}"></th>
-                              <th th:text="${usuario.npasaporte}"></th>
-                              <th th:text="${usuario.dpto_residencia}"></th>
-                              <td th:text="${usuario.fecha_nacimiento}"></td>
-                              
-                                  
-                   </tr>
+                        <th th:text="${usuario.Idusuario}"></th>
+                       <th th:text="${usuario.nombres}"></th>
+                       <th th:text="${usuario.apellidos}"></th>
+                       <th th:text="${usuario.npasaporte}"></th>
+                       <th th:text="${usuario.dpto_residencia}"></th>
+                       <td th:text="${usuario.fecha_nacimiento}"></td>                                 
+                    </tr>
                 </tbody>
-               </table>
+            </table>
+            
             <p th:text = "${mensaje1}">mensaje</p>
+            
+            <div>
+                <form method="POST" th:action="@{/guardarciudad}" >
+                  CIUDAD ACTUAL:</br> 
+                  <input type="text" class="formulario"  name="ciudad_actual"></br>
+                  CIUDAD DESTINO:</br> 
+                  <input type="text" class="formulario"  name="ciudad_destino"></br>
+                  VACUNAS:</br> 
+                  <input type="text" class="formulario"  name="numero_vacunas"></br>
+                  SINTOMAS:</br> 
+                  <input type="text" class="formulario"  name="sintomas"></br>
+                  USUARIO:</br> 
+                  <input type="text" class="formulario"  name="Idusuario"></br>  
+                  <button>Agregar</button>
+                </form>
+            </div>
              
                        
         </div>
