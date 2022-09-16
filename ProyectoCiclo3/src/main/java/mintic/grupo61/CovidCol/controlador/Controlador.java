@@ -43,14 +43,16 @@ public class Controlador {
         modelo.addAttribute ("correo", correo);
         
         List<Usuarios> milista1 = usuarioInterface.consultausuario(correo, contraseña);
+        Long id = milista1.get(0).getIdusuario();
         if(milista1 == null || milista1.size() == 0)
         {
           
-            //modelo.addAttribute ("mensaje1", mensaje1);
+            modelo.addAttribute ("mensaje1", mensaje1);
              
             return "redirect:/";
         }else
         {
+            modelo.addAttribute ("id", id);
             modelo.addAttribute ("lista1", milista1);
             return "usuarioactivo";     
         }   

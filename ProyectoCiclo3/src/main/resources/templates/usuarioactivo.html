@@ -10,6 +10,7 @@
             <h1>HOLA</h1>
             <p th:text = "${mensaje}">mensaje </p>
             <p th:text = "${correo}">mensaje </p>
+            <p th:text = "${id}">id</p>
             <br>
                <table class="mitabla">
                 <thead>
@@ -34,7 +35,7 @@
                 </tbody>
             </table>
             
-            <p th:text = "${mensaje1}">mensaje</p>
+            
             
             <div>
                 <form method="POST" th:action="@{/guardarciudad}" >
@@ -47,7 +48,7 @@
                   SINTOMAS:</br> 
                   <input type="text" class="formulario"  name="sintomas"></br>
                   USUARIO:</br> 
-                  <input type="text" class="formulario"  name="Idusuario"></br>  
+                  <input type="text" class="formulario"  name="Idusuario" th:value = "${id}"  ></br>  
                   <button>Agregar</button>
                 </form>
             </div>

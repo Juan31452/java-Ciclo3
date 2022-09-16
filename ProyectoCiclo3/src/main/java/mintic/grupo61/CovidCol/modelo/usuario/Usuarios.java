@@ -5,15 +5,19 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import java.io.Serializable;
 import static java.time.temporal.WeekFields.ISO;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
+import mintic.grupo61.CovidCol.modelo.ciudad.Ciudad;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Data //se encarga de los getters y setters
@@ -49,7 +53,6 @@ public class Usuarios implements Serializable
   private String npasaporte;
   //@Temporal(TemporalType.DATE)
   @Column   
-  //@DateTimeFormat(pattern = "dd-MM-AAAA")
   //@Temporal(TemporalType.DATE)
   private String fecha_vencepasaporte;
   @Column
@@ -58,9 +61,6 @@ public class Usuarios implements Serializable
   private String contraseña;
   @Column
   private String confirmar_contraseña;
-  
-
-
  
 }
 
