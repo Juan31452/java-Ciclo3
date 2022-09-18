@@ -1,12 +1,42 @@
+
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>TODO supply a title</title>
+    <head th:fragment="head">
+        <title>INICIO SESION</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- CSS only -->
+       
+       <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+      
+       
+       
     </head>
-    <body>
-        <div>
-            <h1>"Hola mundo desde html</h1>
+    <body class="body">
+        <div class ="container-fluid">
+            <h1 class="text-center">Crear Usuarios</h1>
+            <p th:text = "${mensaje1}" class="alert" >mensaje</p>
+            <div class="abs-center">
+                
+                <form method="POST" th:action="@{/usuariover}" class="border " >
+                   <div class="form-group">
+                      CORREO:</br> 
+                      <input type="text" class="formulario" id="correo" name="correo"></br>
+                   </div>  
+                   <div class="form-group"> 
+                      CONTRASEÑA:</br> 
+                      <input type="text" class="formulario" id="contraseña" name="contraseña"></br></br> 
+                    </div> 
+                   
+                    <div class="box-footer"> 
+                      <button class="btn-success">Ingresar</button></br>
+                    </div>      
+                    <h5>Si eres nuevo <a th:href="@{/adicionar}" >Registrate aqui</a>.</h5>
+                </form>
+            </div>         
         </div>
+        
+        
     </body>
 </html>

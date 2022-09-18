@@ -1,0 +1,45 @@
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+    
+   <head>
+        <title>GUARDAR</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Crear Usuarios</h1>
+            <form method="POST" th:action="@{/guardar}" >
+                NOMBRES:</br> 
+                <input type="text" class="formulario"  name="nombres"></br>
+                APELLIDOS:</br> 
+                <input type="text" class="formulario"  name="apellidos"></br>
+                PAIS_NACIMIENTO:</br> 
+                <input type="text" class="formulario"  name="pais_nacimiento"></br>
+                FECHA_NACIMIENTO:</br> 
+                <input type="date" class="formulario"  name="fecha_nacimiento"></br>
+                DPTO RESIDENCIA:</br> 
+                <input type="text" class="formulario"  name="dpto_residencia"></br>
+                CIUDAD RESIDENCIA:</br> 
+                <input type="text" class="formulario"  name="ciudad_residencia"></br>                
+                DIRECCION:</br> 
+                <input type="text" class="formulario"  name="direccion"></br>
+                TIPO_DOCUMENTO:</br> 
+                <input type="text" class="formulario"  name="tipo_documento"></br>
+                NUMERO_DOCUMENTO:</br> 
+                <input type="text" class="formulario"  name="numero_documento"></br>                
+                PASAPORTE:</br> 
+                <input type="text" class="formulario"  name="npasaporte"></br>
+                FECHA VENCE PASAPORTE:</br> 
+                <input type="date" class="formulario"  name="fecha_vencepasaporte"></br>                
+                CORREO:</br> 
+                <input type="text" class="formulario"  name="correo"></br>
+                CONTRASEÑA:</br> 
+                <input type="text" class="formulario"  name="contraseña"></br>
+                CONFIRMAR_CONTRSEÑA:</br> 
+                <input type="text" class="formulario"  name="confirmar_contraseña"></br>
+                
+                <button>Agregar</button>
+      </form>    
+        </div>
+    </body>
+</html>
