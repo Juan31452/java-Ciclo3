@@ -28,39 +28,42 @@ public class Usuarios implements Serializable
     
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "Idusuario")
   private Long Idusuario;
-  @Column        
+  @Column(name = "Nombres")        
   private String nombres;
-  @Column        
+  @Column(name = "Apellidos")        
   private String apellidos;
-  @Column        
+  @Column(name = "Pais_nacimiento")        
   private String pais_nacimiento;
-  @Column
+  @Column(name = "Fecha_Nacimiento")
   //@DateTimeFormat(pattern = "dd-MM-AAAA")
   //@Temporal(TemporalType.DATE)
   private String fecha_nacimiento;
-  @Column        
+  @Column(name = "Dpto_Residencia")        
   private String dpto_residencia;
-  @Column        
+  @Column(name = "Ciudad_Residencia")        
   private String ciudad_residencia;  
-  @Column        
+  @Column(name = "Direccion")        
   private String direccion;
-  @Column        
+  @Column(name = "Tipo_Documento")        
   private String tipo_documento;
-  @Column        
+  @Column(name = "Numero_Documento")        
   private String numero_documento;
-  @Column        
+  @Column(name = "Npasaporte")        
   private String npasaporte;
   //@Temporal(TemporalType.DATE)
   @Column   
-  //@Temporal(TemporalType.DATE)
   private String fecha_vencepasaporte;
-  @Column
+  @Column(name = "Correo")
   private String correo;
-  @Column
+  @Column(name = "Contraseña")
   private String contraseña;
-  @Column
+  @Column(name = "Confirmar_Contraseña")
   private String confirmar_contraseña;
- 
+  
+  //@OneToMany(mappedBy = "Idusuario")
+  //List<Ciudad> listaciudad;
+  
 }
 
