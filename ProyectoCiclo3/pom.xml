@@ -51,14 +51,14 @@
                     <scope>test</scope>
 		</dependency>
                 
-                <!-- Conector/libreria de MYSQL para java 
+                <!-- Conector/libreria de MYSQL para java -->
                 <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
                     <scope>runtime</scope>
-                </dependency> -->
+                </dependency> 
                 
-                <!-- SQLITE Database library -->
+                <!-- SQLITE Database library 
                 <dependency>
                         <groupId>com.zsoltfabok</groupId>
                         <artifactId>sqlite-dialect</artifactId>
@@ -68,7 +68,7 @@
                         <groupId>org.xerial</groupId>
                         <artifactId>sqlite-jdbc</artifactId>
                         <version>3.25.2</version>
-                </dependency>
+                </dependency>-->
                 
                 <!-- Introduce jquery-webjar-->
         <dependency>

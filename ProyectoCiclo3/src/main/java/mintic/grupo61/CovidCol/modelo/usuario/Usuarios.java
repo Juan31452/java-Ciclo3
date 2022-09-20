@@ -53,7 +53,7 @@ public class Usuarios implements Serializable
   @Column(name = "Npasaporte")        
   private String npasaporte;
   //@Temporal(TemporalType.DATE)
-  @Column   
+  @Column(name = "Fecha_VencePasaporte")   
   private String fecha_vencepasaporte;
   @Column(name = "Correo")
   private String correo;
