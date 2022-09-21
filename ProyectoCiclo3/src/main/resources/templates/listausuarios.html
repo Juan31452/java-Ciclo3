@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html "http://www.thymeleaf.org">
+    <head>
+        <title>LISTA USARUIOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>  
+            <h1>LISTA USUARIOS</h1>
+                <br>
+                   <table class="mitabla">
+                    <thead>
+                         <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Pais Nacimiento</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="listau : ${listausuarios}">
+                            <th th:text="${listau.nombres}"></th>
+                            <th th:text="${listau.apellidos}"></th>
+                            <th th:text="${listau.pais_nacimiento}"></th>
+
+                       </tr>
+                    </tbody>
+                </table>
+        </div>
+    </body>
+</html>
