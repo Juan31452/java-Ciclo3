@@ -98,6 +98,14 @@ public class Controlador {
         return "ciudad";
     }
     
+    //listarTodosUsuarios
+    @GetMapping("/listausuarios")//http:localhost:8080/listaciudad
+    public String listausuarios(Model modelo)
+    {
+        modelo.addAttribute("listausuarios", usuarioInterface.consultausuario1());
+        return "listausuarios";
+    }
+    
 }    
        
 
