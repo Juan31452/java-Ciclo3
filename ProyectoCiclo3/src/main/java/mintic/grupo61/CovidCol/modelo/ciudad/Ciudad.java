@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
+import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
 @Data //se encarga de los getters y setters
 @Entity
@@ -20,20 +21,21 @@ public class Ciudad implements Serializable
 {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "Idciudad",nullable = false)
   private Long Idciudad;
-  @Column        
+  @Column(name = "Ciudad_Actual")        
   private String ciudad_actual;
-  @Column        
+  @Column(name = "Ciudad_Destino")        
   private String ciudad_destino;
-  @Column        
+  @Column(name = "Numero_Vacunas")        
   private Integer numero_vacunas;
-  @Column
+  @Column(name = "Sintomas")
   private String sintomas;
-  @Column        
+  @Column(name = "Idusuario")        
   private Long Idusuario;
   
-//  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-//  @JoinColumn(name="Idusuario")
-//  private Usuarios usuarios;
-//  
+  //@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+  //@JoinColumn(name="Idusuario")
+  //Usuarios usuarios;
+  
 }
