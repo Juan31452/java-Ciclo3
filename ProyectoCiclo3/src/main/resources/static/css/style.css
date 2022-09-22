@@ -86,3 +86,21 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.mapa
+{
+    width: 40%;
+    margin: auto;
+}
+
+.mapa path
+{
+    fill: aliceblue;
+    stroke: blue;
+    stroke-width: 2px;
+}
+
+.mapa :hover
+{
+    fill:brown;
+}
