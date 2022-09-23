@@ -94,7 +94,7 @@ public class Controlador {
     @GetMapping("/listaciudad")//http:localhost:8080/listaciudad
     public String listarciudad(Model modelo)
     {
-        modelo.addAttribute("listaciudad", ciudadInterface.findAll());
+        modelo.addAttribute("listaciudad", ciudadInterface.ultimoviaje());
         return "ciudad";
     }
     
