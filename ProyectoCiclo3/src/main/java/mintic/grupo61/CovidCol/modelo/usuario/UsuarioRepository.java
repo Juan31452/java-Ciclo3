@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 //Interface que contiene el CRUD con Spring JPA para la tabla de usuarios.
-public interface UsuarioInterface extends CrudRepository<Usuarios, Long> 
+public interface UsuarioRepository extends CrudRepository<Usuarios, Long> 
 {
   @Transactional
   //Optional<Usuarios> findBycorreo(String correo);
