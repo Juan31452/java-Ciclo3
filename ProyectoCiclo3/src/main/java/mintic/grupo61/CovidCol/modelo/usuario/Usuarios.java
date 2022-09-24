@@ -1,26 +1,26 @@
 
 package mintic.grupo61.CovidCol.modelo.usuario;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import java.io.Serializable;
 import static java.time.temporal.WeekFields.ISO;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import lombok.Data;
 import mintic.grupo61.CovidCol.modelo.ciudad.Ciudad;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.mapping.Set;
 
 @Data //se encarga de los getters y setters
 @Entity
@@ -64,9 +64,17 @@ public class Usuarios implements Serializable
   @Column(name = "Confirmar_Contraseña")
   private String confirmar_contraseña;
   
-  @OneToMany(cascade = CascadeType.ALL)
-  @JoinColumn(name ="Idusuario",referencedColumnName = "Idusuario")
-  List<Ciudad> listaciudad = new ArrayList<>();
+  @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+  @JoinTable(name = "usuarios_ciudad", joinColumns = {
+            @JoinColumn(name = "usuarios_id", referencedColumnName = "Idusuario", nullable = false, updatable = false)
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "ciudad_id", referencedColumnName = "Idciudad", nullable = false, updatable = false)
+    })
+//  @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
+  //private List<Ciudad> ciudad = new ArrayList<Ciudad>();
+  private java.util.Set<Ciudad> ciudad = new HashSet<>();
+
+   
   
 }
 

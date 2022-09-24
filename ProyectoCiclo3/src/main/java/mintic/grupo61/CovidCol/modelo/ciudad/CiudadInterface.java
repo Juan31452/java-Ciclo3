@@ -12,7 +12,7 @@ public interface CiudadInterface extends CrudRepository<Ciudad, Long>
 {
    @Transactional   
    
-   @Query (value = "select c.Idciudad,c.ciudad_actual,c.ciudad_destino,c.numero_vacunas,c.sintomas,c.Idusuario"
+   @Query (value = "select c.Idciudad,c.ciudad_actual,c.ciudad_destino,c.numero_vacunas,c.sintomas,c.idusuario"
           + "  from ciudad c where c.Idciudad = (select max(Idciudad) from ciudad ) ", nativeQuery = true)
    public List<Ciudad> ultimoviaje();
 }

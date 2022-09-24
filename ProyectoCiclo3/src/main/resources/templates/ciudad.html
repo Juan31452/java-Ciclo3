@@ -20,7 +20,7 @@
                         <th>Ciudad Destino</th>
                         <th>Numero Vacunas</th>
                         <th>Sintomas</th>
-                        <th>Idusuario</th>
+                        <th>usuario</th>
                      </tr>
                 </thead>
                 <tbody>
@@ -30,11 +30,12 @@
                         <th th:text="${ciudad.ciudad_destino}"></th>
                         <th th:text="${ciudad.numero_vacunas}"></th>
                         <th th:text="${ciudad.sintomas}"></th>
-                        <th th:text="${ciudad.Idusuario}"></th>                                  
+                        <th th:text="${ciudad.usuarios}"></th>
                    </tr>
                 </tbody>
             </table>
         </div>
+        
         <div class = "mapa">
           <svg  version="1.2" viewbox="0 0 1000 1195"  xmlns="http://www.w3.org/2000/svg">
              
