@@ -1,0 +1,95 @@
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+html,
+body {
+    height: 100%;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+
+.color-blue {
+    color: blue;
+}
+
+.color-body {
+    background-color:rgb(188, 213, 235);
+}
+
+.mapa
+{
+    width: 40%;
+    margin: auto;
+}
+
+.mapa path
+{
+    fill: aliceblue;
+    stroke: blue;
+    stroke-width: 2px;
+}
+
+.mapa:hover
+{
+    fill:brown;
+}
+
+
+
+@media (max-width: 572px) {
+    .addCenter {
+        text-align: center;
+    }
+
+}
+
+.word {
+    word-wrap: break-word;
+    margin: 0 auto;
+    display: block;
+    text-overflow: ellipsis;
+}
+
+#airplane {
+    animation: airplane;
+    animation-duration: 1s;
+    position: relative;
+    animation-iteration-count: infinite;
+}
+
+.color-red {
+    color: red;
+}
+
+@keyframes airplane {
+    0% {
+left: 0px; top: 0px;
+    }
+
+    50% {
+        left: 0px; top: -5px;
+    }
+
+    100% {
+        left: 0px; top: 0px;
+    }
+}
+
+.bg-gray {
+    background-color: azure;
+}
+
+
+.footer {
+margin-top: auto;
+}

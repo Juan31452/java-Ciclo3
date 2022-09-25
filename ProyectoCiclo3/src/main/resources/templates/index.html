@@ -8,7 +8,7 @@
         
         <!-- CSS only -->
        
-       
+        <link th:href="@{/css/general.css}" rel="stylesheet">
        <link th:href="@{/css/style.css}" rel="stylesheet">
        <link th:href="@{/scss/custom.css}" rel="stylesheet">
        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -18,12 +18,16 @@
        
     </head>
 
-    <body class="body text-center">
+    <body class="body text-center" id="body">
+
+     
+
+      
 
         
-        <main class="form-signin w-100 m-auto bg-color rounded-4 h-100 shadow-lg p-3 mb-5 bg-body rounded container-fluid">
+        <main class="form-signin w-100 m-auto bg-color rounded-4 h-100 shadow-lg p-3 mb-5 bg-body rounded container-fluid" id="main">
             <p th:text = "${mensaje1}" class="alert p-0 m-0" >Mensaje</p>
-            <form method="POST" th:action="@{/usuariover}">
+            <form method="POST" th:action="@{/usuariover}" class="was-validated">
             
                
           <h1 class="logo color-blue mt-5">C<span class="material-symbols-outlined">

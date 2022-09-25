@@ -4,9 +4,112 @@
         <title>GUARDAR</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/adicionar.css}" rel="stylesheet">
+       <link th:href="@{/scss/custom.css}" rel="stylesheet">
+       <link th:href="@{/css/ciudad.css}" rel="stylesheet">
+       <link th:href="@{/css/general.css}" rel="stylesheet">
+       <link th:href="@{/css/normalize.css}" rel="stylesheet">
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <div>
+    <body class="body">
+
+        <header class="container-fluid bg-body h-auto word">
+            <div class="row">
+                <h1 class="logo color-blue addCenter col-12 col-sm-10 mt-2 mt-4">C<span class="material-symbols-outlined">
+                        coronavirus</span>vid<strong>Col</strong></h1>
+                <div class="col-12 col-sm-2">
+    
+                    <div class="row h-auto">
+                        <div class="col-12 h-auto">
+                            <article>
+                                <div>
+                                   
+                                </div>
+                            </article>
+                        </div>
+                        
+    
+    
+                    </div>
+                </div>
+        </header>
+
+  
+
+      
+        <div class="container rounded-3 shadow p-2 m-auto mt-4 bg-light ">
+            <h2 class="text-center">Datos Personales</h2>
+            <form method="POST" th:action="@{/guardar}" class="pt-4   " >
+            <div class="row m-4  text-center ">
+                <div class="col-12 col-md-4">
+                    NOMBRES:</br> 
+                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="nombres"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    APELLIDOS:</br> 
+                <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="apellidos"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    PAIS_NACIMIENTO:</br> 
+                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="pais_nacimiento"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    FECHA NACIMIMENTO:</br> 
+                    <input type="date" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="fecha_nacimiento"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    DPTO RESIDENCIA:</br> 
+                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="dpto_residencia"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    CIUDAD RESIDENCIA:</br> 
+                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="ciudad_residencia"></br>  
+                </div>
+                <div class="col-12 col-md-4">
+                    DIRECCION:</br> 
+                <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="direccion"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    TIPO_DOCUMENTO:</br> 
+                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="tipo_documento"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    NUMERO_DOCUMENTO:</br> 
+                <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="numero_documento"></br>  
+                </div>
+                <div class="col-12 col-md-4">
+                    PASAPORTE:</br> 
+                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="npasaporte"></br>
+                </div>
+                <div class="col-12 col-md-4">
+                    FECHA VENCE PASAPORTE:</br> 
+                    <input type="date" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="fecha_vencepasaporte"></br>   
+                </div>
+                <div class="col-12 col-md-4">
+                    CORREO:</br> 
+                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="correo"></br> 
+                </div>
+                <div class="col-12 col-md-4">
+                    CONTRASEÑA:</br> 
+                    <input class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="contraseña"></br> 
+                </div>
+                <div class="col-12 col-md-4">
+                    CONFIRMAR_CONTRSEÑA:</br> 
+                    <input class="formulario form-control border-primary rounded-4 mb-2  border border-3 pb-2 pt-2 w-75 margin-auto"  name="confirmar_contraseña" ></br> 
+                </div>
+                <div class="col-12 col-md-4 mt-4 margin-auto">
+                    <button class="btn btn-primary mt-4 ">Agregar</button>
+                </div>
+               
+            </form>   
+            </div>
+        </div>
+
+    
+        <!-- <div>
             <h1>Crear Usuarios</h1>
             <form method="POST" th:action="@{/guardar}" >
                 NOMBRES:</br> 
@@ -40,6 +143,18 @@
                 
                 <button>Agregar</button>
       </form>    
-        </div>
+        </div> -->
+
+
+        <footer class="container-fluid bg-body footer align-items-center mt-5">
+            <div class="row addCenter">
+                <div class="col-12">
+                    <h6 class="logo color-blue addCenter col-12 col-sm-10 m-1">C<span class="material-symbols-outlined">
+                        coronavirus</span>vid<strong>Col</strong></h6>
+                </div>
+            </div>
+        </footer>
+       
+
     </body>
 </html>
