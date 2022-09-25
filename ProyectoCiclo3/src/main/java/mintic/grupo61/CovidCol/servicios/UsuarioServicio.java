@@ -5,5 +5,7 @@ import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
 public interface UsuarioServicio 
 {
-   List<Usuarios> Todos();    
+   List<Usuarios> Todos();  
+   Usuarios guardarusuario(Usuarios usuarios);
+   List<Usuarios> buscarusuario(String correo, String contraseña);
 }

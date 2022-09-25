@@ -1,9 +1,12 @@
 package mintic.grupo61.CovidCol.servicios;
 
 import java.util.List;
+import javax.transaction.Transactional;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 import mintic.grupo61.CovidCol.modelo.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,5 +24,17 @@ public class UsuarioImpl implements UsuarioServicio
 
         return (List<Usuarios>) usuarior.findAll();
     }
-    
-}
+
+    @Override
+    public Usuarios guardarusuario(Usuarios usuarios) 
+    {
+      return usuarior.save(usuarios);
+    }
+
+    @Override
+    public List<Usuarios> buscarusuario(String correo, String contraseña) 
+    {
+     return usuarior.consultausuario(correo, contraseña);
+    }
+
+ }

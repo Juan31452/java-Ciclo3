@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 //Interface que contiene el CRUD con Spring JPA para la tabla de ciudad.
-public interface CiudadInterface extends CrudRepository<Ciudad, Long>
+public interface CiudadRepository extends CrudRepository<Ciudad, Long>
 {
    @Transactional   
    
-   @Query (value = "select c.Idciudad,c.ciudad_actual,c.ciudad_destino,c.numero_vacunas,c.sintomas,c.idusuario"
+   @Query (value = "select c.Idciudad,c.ciudad_actual,c.ciudad_destino,c.numero_vacunas,c.sintomas"
           + "  from ciudad c where c.Idciudad = (select max(Idciudad) from ciudad ) ", nativeQuery = true)
    public List<Ciudad> ultimoviaje();
 }

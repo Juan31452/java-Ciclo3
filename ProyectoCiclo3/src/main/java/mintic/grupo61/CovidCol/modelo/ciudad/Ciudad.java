@@ -40,9 +40,20 @@ public class Ciudad implements Serializable
   //@Column(name = "Idusuario")        
   //private Long Idusuario;
 
-   @ManyToMany(mappedBy = "ciudad", fetch = FetchType.LAZY)
-    private Set<Usuarios> usuarios = new HashSet<>();
 
+    public Ciudad() {
+    }
+
+    public Ciudad(String ciudad_actual, String ciudad_destino, Integer numero_vacunas, String sintomas, Long Idusuario) {
+        this.ciudad_actual = ciudad_actual;
+        this.ciudad_destino = ciudad_destino;
+        this.numero_vacunas = numero_vacunas;
+        this.sintomas = sintomas;
+    }
+
+
+   @ManyToMany(mappedBy = "ciudad", fetch = FetchType.LAZY)
+    private Set<Usuarios> usuario = new HashSet<>();
    
    
     
