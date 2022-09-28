@@ -1,11 +1,10 @@
 package mintic.grupo61.CovidCol.modelo.usuario;
 
 import java.io.Serializable;
-import static java.time.temporal.WeekFields.ISO;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Vector;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
 import mintic.grupo61.CovidCol.modelo.ciudad.Ciudad;
@@ -29,71 +27,51 @@ public class Usuarios implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "Idusuario")
+  @Column(name = "idusuario", nullable = false)
   private Long Idusuario;
-  @Column(name = "Nombres")
-  private String nombres;
-  @Column(name = "Apellidos")
+  @Column(name = "nombres", nullable = false, length = 50)
+  private String nombres; 
+  @Column(name = "apellidos", nullable = false, length = 50)
   private String apellidos;
-  @Column(name = "Pais_nacimiento")
+  @Column(name = "pais_nacimiento", nullable = false, length = 30)
   private String pais_nacimiento;
-  @Column(name = "Fecha_Nacimiento")
+  @Column(name = "fecha_nacimiento")
   // @DateTimeFormat(pattern = "dd-MM-AAAA")
   // @Temporal(TemporalType.DATE)
   private String fecha_nacimiento;
-  @Column(name = "Dpto_Residencia")
+  @Column(name = "dpto_residencia", nullable = false, length = 30)
   private String dpto_residencia;
-  @Column(name = "Ciudad_Residencia")
+  @Column(name = "ciudad_residencia", nullable = false, length = 30)
   private String ciudad_residencia;
-  @Column(name = "Direccion")
+  @Column(name = "direccion", length = 30)
   private String direccion;
-  @Column(name = "Tipo_Documento")
+  @Column(name = "tipo_documento", nullable = false, length = 2)
   private String tipo_documento;
-  @Column(name = "Numero_Documento")
+  @Column(name = "numero_documento", nullable = false, length = 20)
   private String numero_documento;
-  @Column(name = "Npasaporte")
+  @Column(name = "npasaporte", nullable = false, length = 20)
   private String npasaporte;
   // @Temporal(TemporalType.DATE)
   @Column
   private String fecha_vencepasaporte;
-  @Column(name = "Correo")
+  @Column(name = "Correo", nullable = false, length = 30)
   private String correo;
-  @Column(name = "Contraseña")
-  private String contraseña;
-  @Column(name = "Confirmar_Contraseña")
-  private String confirmar_contraseña;
+  @Column(name = "Contrasena", nullable = false, length = 20)
+  private String contrasena;
+  @Column(name = "Confirmar_Contrasena", nullable = false, length = 20)
+  private String confirmar_contrasena;
 
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(name = "usuarios_ciudad", joinColumns = {
-      @JoinColumn(name = "usuarios_id", referencedColumnName = "Idusuario", nullable = false, updatable = false)
+      @JoinColumn(name = "usuarios_id", referencedColumnName = "idusuario", nullable = false, updatable = false)
   }, inverseJoinColumns = {
-      @JoinColumn(name = "ciudad_id", referencedColumnName = "Idciudad", nullable = false, updatable = false)
+      @JoinColumn(name = "ciudad_id", referencedColumnName = "idciudad", nullable = false, updatable = false)
   })
   // @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
   // private List<Ciudad> ciudad = new ArrayList<Ciudad>();
-  private Set<Ciudad> ciudad = new HashSet<>();
+  private List<Ciudad> ciudad ; 
 
-  public Usuarios() {
-  }
 
-  public Usuarios(String nombres, String apellidos, String pais_nacimiento, String fecha_nacimiento,
-      String dpto_residencia, String ciudad_residencia, String direccion, String tipo_documento,
-      String numero_documento, String npasaporte, String fecha_vencepasaporte, String correo, String contraseña,
-      String confirmar_contraseña) {
-    this.nombres = nombres;
-    this.apellidos = apellidos;
-    this.pais_nacimiento = pais_nacimiento;
-    this.fecha_nacimiento = fecha_nacimiento;
-    this.dpto_residencia = dpto_residencia;
-    this.ciudad_residencia = ciudad_residencia;
-    this.direccion = direccion;
-    this.tipo_documento = tipo_documento;
-    this.numero_documento = numero_documento;
-    this.npasaporte = npasaporte;
-    this.fecha_vencepasaporte = fecha_vencepasaporte;
-    this.correo = correo;
-    this.contraseña = contraseña;
-    this.confirmar_contraseña = confirmar_contraseña;
-  }
-
+  
+  
 }

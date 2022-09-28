@@ -1,6 +1,8 @@
 package mintic.grupo61.CovidCol.controlador;
 
 import java.util.List;
+import java.util.Optional;
+import mintic.grupo61.CovidCol.modelo.casos.casosRepository;
 import mintic.grupo61.CovidCol.modelo.ciudad.Ciudad;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import mintic.grupo61.CovidCol.servicios.UsuarioImpl;
 import mintic.grupo61.CovidCol.servicios.CiudadImpl;
+import org.springframework.web.bind.annotation.PathVariable;
 
 //Controlador que manipula el flujo de los servicios rest del microservicio de Covidcol.
 
@@ -22,8 +25,8 @@ public class Controlador {
 
     // @Autowired
     // private UsuarioRepository usuarioInterface;
-    // @Autowired
-    // private CiudadRepository ciudadInterface;
+     @Autowired
+     private casosRepository casosRepository;
 
     @Autowired
     private UsuarioImpl usuarioImpl;
@@ -41,11 +44,11 @@ public class Controlador {
     @PostMapping("/usuariover")
     public String usuariover(String correo, String contraseña, Model modelo) // ,@PathVariable String correo
     {
-        String mensaje = "Hola mundo con thymeleaf";
+        //String mensaje = "Hola mundo con thymeleaf";
         String mensaje1 = "Usuario o clave invalidad";
 
-        modelo.addAttribute("mensaje", mensaje);
-        modelo.addAttribute("correo", correo);
+        //modelo.addAttribute("mensaje", mensaje);
+        //modelo.addAttribute("correo", correo);
 
         List<Usuarios> milista1 = usuarioImpl.buscarusuario(correo, contraseña);
 
@@ -93,7 +96,22 @@ public class Controlador {
     // listar
     @GetMapping("/listaciudad") // http:localhost:8080/listaciudad
     public String listarciudad(Model modelo) {
+        
+        String estado = "Leve";
+        String estado1 = "Fallecido";
+        String estado2 = "Recuperado";
+        long caso1 = casosRepository.countByestado(estado);
+        long caso2 = casosRepository.countByestado(estado1);
+        long recuperados = casosRepository.countByrecuperado(estado2);
+        long confirmados = caso1 + caso2;
+        long activos = confirmados - recuperados;
+        modelo.addAttribute("activos", activos);
+        modelo.addAttribute("confirmados", confirmados);
+        modelo.addAttribute("fallecidos", caso2);
+        modelo.addAttribute("recuperado", recuperados );
+
         modelo.addAttribute("listaciudad", ciudadImpl.buscarultimo());
+
         return "ciudad";
     }
 
@@ -104,5 +122,38 @@ public class Controlador {
     // modelo.addAttribute("listausuarios", usuarioImpl.consultausuario1());
     // return "listausuarios";
     // }
+    
+    // casos
+    @GetMapping("/activos") // http:localhost:8080/activos
+    public String activos (Model modelo) {
+        String estado = "Leve";
+        String estado1 = "Fallecido";
+        String estado2 = "Recuperado";
+        long caso1 = casosRepository.countByestado(estado);
+        long caso2 = casosRepository.countByestado(estado1);
+        long recuperados = casosRepository.countByrecuperado(estado2);
+        long confirmados = caso1 + caso2;
+        long activos = confirmados - recuperados;
+        modelo.addAttribute("activos", activos);
+        modelo.addAttribute("confirmados", confirmados);
+        modelo.addAttribute("fallecidos", caso2);
+        modelo.addAttribute("recuperado", recuperados );
+        
+        return "ciudad";
+    }
+    
+    // editar
+    @GetMapping("/editarusuario/{id}") // http:localhost:8080/
+    public String editar(@PathVariable("id") Long Id ,Model modelo) {
+    //     Usuarios usuarios = usuarioImpl.findByIdusuario(Id);
+        long miid = Id;
+        List<Usuarios> milista = usuarioImpl.editarusuario(Id);
+        
+
+        modelo.addAttribute("editar", milista );
+        modelo.addAttribute("id", miid );
+        return "editarusuario";
+    }
+
 
 }

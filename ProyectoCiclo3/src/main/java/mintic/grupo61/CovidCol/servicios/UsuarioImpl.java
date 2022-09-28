@@ -5,8 +5,6 @@ import javax.transaction.Transactional;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 import mintic.grupo61.CovidCol.modelo.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -37,4 +35,15 @@ public class UsuarioImpl implements UsuarioServicio
      return usuarior.consultausuario(correo, contraseña);
     }
 
+    @Override
+    public List<Usuarios> editarusuario(Long id) {
+      return usuarior.consultausuario1(id);
+    }
+
+//    @Override
+//    public Usuarios findByIdusuario(Long id) {
+//        return usuarior.findByIdusuario(id);
+//    }
+
+ 
  }

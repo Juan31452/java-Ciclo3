@@ -1,21 +1,17 @@
 package mintic.grupo61.CovidCol.modelo.ciudad;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
-import javax.persistence.CascadeType;
+import java.util.Vector;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
@@ -28,13 +24,13 @@ public class Ciudad implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "idciudad", nullable = false)
   private Long Idciudad;
-  @Column(name = "ciudad_actual")
+  @Column(name = "ciudad_actual", nullable = false, length = 30)
   private String ciudad_actual;
-  @Column(name = "ciudad_destino")
+  @Column(name = "ciudad_destino", nullable = false, length = 30)
   private String ciudad_destino;
-  @Column(name = "numero_vacunas")
+  @Column(name = "numero_vacunas", nullable = false, length = 2)
   private Integer numero_vacunas;
-  @Column(name = "sintomas")
+  @Column(name = "sintomas",nullable = false, length = 150)
   private String sintomas;
   // @Column(name = "Idusuario")
   // private Long Idusuario;
@@ -50,6 +46,8 @@ public class Ciudad implements Serializable {
   }
 
   @ManyToMany(mappedBy = "ciudad", fetch = FetchType.LAZY)
-  private Set<Usuarios> usuario = new HashSet<>();
+  private List<Usuarios> usuario;
 
+
+  
 }

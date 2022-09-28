@@ -1,4 +1,4 @@
-<htmllang="en"xmlns:th="http://www.thymeleaf.org">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
     
     <head>
         <title>USUARIOS</title>
@@ -17,6 +17,7 @@
                <table class="mitabla">
                 <thead>
                      <tr>
+                        <th>ID</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Pasaporte</th>
@@ -26,11 +27,13 @@
                 </thead>
                 <tbody>
                     <tr th:each="usuario : ${lista}">
+                             <th th:text="${usuario.Idusuario}"></th>
                               <th th:text="${usuario.nombres}"></th>
                               <th th:text="${usuario.apellidos}"></th>
                               <th th:text="${usuario.npasaporte}"></th>
                               <th th:text="${usuario.dpto_residencia}"></th>
                               <th  th:text="${usuario.fecha_nacimiento}"></th>
+                              <th>  <a th:href= "@{/editarusuario/{Idusuario}(Idusuario = ${usuario.Idusuario})}"> Editar </a></th>
                                   
                    </tr>
                 </tbody>

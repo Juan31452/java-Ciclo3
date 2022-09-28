@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>EDITAR USUARIO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Editar Usuarios</h1>
+                <form method="POST" th:action="@{/guardar}" th:each="usuario : ${editar}" >
+                ID:</br> 
+                <input type="text" name="Idusuario" id = "Idusuario"  th:value = "${usuario.Idusuario}"  class="formulario"  ></br>                
+                NOMBRES:</br> 
+                <input type="text" th:value = "${usuario.nombres}"  class="formulario"  name="nombres"></br> 
+                APELLIDOS:</br> 
+                <input type="text" th:value = "${usuario.apellidos}"  class="formulario"  name="apellidos"></br> 
+                PAIS_NACIMIENTO:</br> 
+                <input type="text" th:value = "${usuario.pais_nacimiento}" class="formulario"  name="pais_nacimiento"></br>
+                FECHA_NACIMIENTO:</br> 
+                <input type="date" th:value = "${usuario.fecha_nacimiento}" class="formulario"  name="fecha_nacimiento"></br>
+                DPTO RESIDENCIA:</br> 
+                <input type="text" th:value = "${usuario.dpto_residencia}" class="formulario"  name="dpto_residencia"></br>
+                CIUDAD RESIDENCIA:</br> 
+                <input type="text" th:value = "${usuario.ciudad_residencia}" class="formulario"  name="ciudad_residencia"></br>                
+                DIRECCION:</br> 
+                <input type="text" th:value = "${usuario.direccion}" class="formulario"  name="direccion"></br>
+                TIPO_DOCUMENTO:</br> 
+                <input type="text" th:value = "${usuario.tipo_documento}" class="formulario"  name="tipo_documento"></br>
+                NUMERO_DOCUMENTO:</br> 
+                <input type="text" th:value = "${usuario.numero_documento}" class="formulario"  name="numero_documento"></br>                
+                PASAPORTE:</br> 
+                <input type="text"th:value = "${usuario.npasaporte}" class="formulario"  name="npasaporte"></br>
+                FECHA VENCE PASAPORTE:</br> 
+                <input type="date" th:value = "${usuario.fecha_vencepasaporte}" class="formulario"  name="fecha_vencepasaporte"></br>                
+                CORREO:</br> 
+                <input type="text" th:value = "${usuario.correo}" class="formulario"  name="correo"></br>
+                CONTRASEÑA:</br> 
+                <input type="text" th:value = "${usuario.contrasena}" class="formulario"  name="contrasena"></br>
+                CONFIRMAR_CONTRSEÑA:</br> 
+                <input type="text" th:value = "${usuario.confirmar_contrasena}" class="formulario"  name="confirmar_contrasena"></br>
+                
+                <button>Guardar</button>
+      </form>
+            
+               
+            <br>
+               <table class="mitabla">
+                <thead>
+                     <tr>
+                        <th>ID</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Pasaporte</th>
+                        <th>Dpto_Residencia</th>
+                        <th>Fecha_nacimiento</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario : ${editar}">
+                             <th th:text="${usuario.Idusuario}"></th>
+                              <th th:text="${usuario.nombres}"></th>
+                              <th th:text="${usuario.apellidos}"></th>
+                              <th th:text="${usuario.npasaporte}"></th>
+                              <th th:text="${usuario.dpto_residencia}"></th>
+                              <th  th:text="${usuario.fecha_nacimiento}"></th>
+                                  
+                   </tr>
+                </tbody>
+               </table>
+        <p th:text = "${id}">id</p>
+        </div> 
+
+    </body>
+</html>

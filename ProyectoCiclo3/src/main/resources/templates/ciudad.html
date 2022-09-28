@@ -41,7 +41,7 @@
                             </div>
                         </article>
                     </div>
-                    
+                                       
 
 
                 </div>
@@ -65,7 +65,7 @@
                                     boy
                                 </span>
                                 <p>Casos <strong>Activos</strong></p>
-
+                                <p th:text="${activos}"></p>    
                             </div>
                         </div>
                            
@@ -86,6 +86,7 @@
                                     sick
                                     </span>
                                     <p>Casos <strong>confirmados</strong></p>
+                                    <p th:text="${confirmados}"></p>
                             </div>
 
                         
@@ -104,6 +105,7 @@
                                     vaccines
                                     </span>
                                     <p>Casos <strong>Recuperados</strong></p>
+                                    <p th:text="${recuperado}"></p>
                             </div>
 
                         
@@ -154,7 +156,7 @@
                                     boy
                                     </span>
                                     <p>Fallecidos</p>
-                                    <p>16.500</p>
+                                    <p th:text="${fallecidos}"></p>
                             </div>
 
                         
@@ -174,6 +176,7 @@
                                             boy
                                             </span>
                                             <p>Fallecidos</p>
+                                            
                                     </div>
         
                                 
@@ -392,8 +395,44 @@
             </circle>
         </svg>
     </div> -->
+    
+     <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        const labels = [
+          'January',
+          'March',
+          'Junio',
+          'Sept',
+          'Dic',
+          'Januery',
+        ];
 
-  
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'Contagiados',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [500, 400, 500, 720, 920, 930, 990],
+          }]
+        };
+
+        const config = {
+          type: 'bar',
+          data: data,
+          options: {}
+        };
+      </script>
+      <script>
+        const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+      </script>
+
     <footer class="container-fluid bg-body footer align-items-center">
         <div class="row addCenter">
             <div class="col-12">
