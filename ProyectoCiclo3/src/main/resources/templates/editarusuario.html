@@ -9,7 +9,7 @@
             <h1>Editar Usuarios</h1>
                 <form method="POST" th:action="@{/guardar}" th:each="usuario : ${editar}" >
                 ID:</br> 
-                <input type="text" name="Idusuario" id = "Idusuario"  th:value = "${usuario.Idusuario}"  class="formulario"  ></br>                
+                <input type="hidden" name="Idusuario" id = "Idusuario"  th:value = "${usuario.Idusuario}"  class="formulario"  ></br>                
                 NOMBRES:</br> 
                 <input type="text" th:value = "${usuario.nombres}"  class="formulario"  name="nombres"></br> 
                 APELLIDOS:</br> 

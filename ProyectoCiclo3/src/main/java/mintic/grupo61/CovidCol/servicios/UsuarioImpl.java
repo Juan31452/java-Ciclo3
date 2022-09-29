@@ -1,13 +1,14 @@
 package mintic.grupo61.CovidCol.servicios;
 
 import java.util.List;
-import javax.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 import mintic.grupo61.CovidCol.modelo.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UsuarioImpl implements UsuarioServicio
 {
     @Autowired 
@@ -26,6 +27,7 @@ public class UsuarioImpl implements UsuarioServicio
     @Override
     public Usuarios guardarusuario(Usuarios usuarios) 
     {
+        
       return usuarior.save(usuarios);
     }
 
