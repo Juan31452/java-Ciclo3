@@ -20,6 +20,8 @@ public class Casos implements Serializable
     //@Column(name = "Id", nullable = false)
     private Long Id;
     //@Column(name = "departamento", length = 20)
+    private Integer ano;
+    private Integer mes;
     private String departamento;
     //@Column(name = "municipio", length = 20)
     private String municipio;
