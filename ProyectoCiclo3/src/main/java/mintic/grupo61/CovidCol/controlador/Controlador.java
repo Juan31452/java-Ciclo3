@@ -1,7 +1,6 @@
 package mintic.grupo61.CovidCol.controlador;
 
 import java.util.List;
-import java.util.Optional;
 import mintic.grupo61.CovidCol.modelo.casos.casosRepository;
 import mintic.grupo61.CovidCol.modelo.ciudad.Ciudad;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
@@ -129,11 +128,23 @@ public class Controlador {
         String estado = "Leve";
         String estado1 = "Fallecido";
         String estado2 = "Recuperado";
+        String ciudad1 = "Bogota";
+        String ciudad2 = "Cali";
+        String ciudad3 = "Medellin";
         long caso1 = casosRepository.countByestado(estado);
         long caso2 = casosRepository.countByestado(estado1);
         long recuperados = casosRepository.countByrecuperado(estado2);
+        long casociudad = casosRepository.casosciudad();
+        long casociudad1 = casosRepository.casosciudad1();
+        long casociudad2 = casosRepository.casosciudad2();
         long confirmados = caso1 + caso2;
         long activos = confirmados - recuperados;
+        modelo.addAttribute("casociudad", casociudad );
+        modelo.addAttribute("casociudad1", casociudad1 );
+        modelo.addAttribute("casociudad2", casociudad2 );
+        modelo.addAttribute("ciudad1", ciudad1 );
+        modelo.addAttribute("ciudad2", ciudad2 );
+        modelo.addAttribute("ciudad3", ciudad3 );
         modelo.addAttribute("activos", activos);
         modelo.addAttribute("confirmados", confirmados);
         modelo.addAttribute("fallecidos", caso2);
@@ -141,6 +152,7 @@ public class Controlador {
         
         return "ciudad";
     }
+    
     
     // editar
     @GetMapping("/editarusuario/{id}") // http:localhost:8080/
