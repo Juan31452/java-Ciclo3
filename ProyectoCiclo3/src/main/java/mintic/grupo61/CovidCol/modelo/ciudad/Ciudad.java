@@ -12,17 +12,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mintic.grupo61.CovidCol.modelo.usuario.Usuarios;
 
 @Data // se encarga de los getters y setters
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "ciudad")
 public class Ciudad implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "idciudad", nullable = false)
+  @EqualsAndHashCode.Include()
+  //@Column(name = "idciudad")
   private Long Idciudad;
   @Column(name = "ciudad_actual", nullable = false, length = 30)
   private String ciudad_actual;
@@ -32,22 +36,15 @@ public class Ciudad implements Serializable {
   private Integer numero_vacunas;
   @Column(name = "sintomas",nullable = false, length = 150)
   private String sintomas;
-  // @Column(name = "Idusuario")
-  // private Long Idusuario;
+  //@Column(name = "usuario",nullable = false)
+  //private Long usuario;
 
-  public Ciudad() {
-  }
+  
+//  @ManyToMany(mappedBy = "muchasciudades", fetch = FetchType.LAZY)
+//  private Set<Usuarios> usuario = new HashSet();
 
-  public Ciudad(String ciudad_actual, String ciudad_destino, Integer numero_vacunas, String sintomas, Long Idusuario) {
-    this.ciudad_actual = ciudad_actual;
-    this.ciudad_destino = ciudad_destino;
-    this.numero_vacunas = numero_vacunas;
-    this.sintomas = sintomas;
-  }
-
-  @ManyToMany(mappedBy = "ciudad", fetch = FetchType.LAZY)
-  private List<Usuarios> usuario;
-
+  @ManyToOne
+  private Usuarios usuario;
 
   
 }

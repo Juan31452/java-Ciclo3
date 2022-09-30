@@ -1,7 +1,9 @@
 package mintic.grupo61.CovidCol.modelo.casos;
 
 import javax.transaction.Transactional;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -15,9 +17,22 @@ public interface casosRepository extends CrudRepository<Casos, Long>
 //   public List<Casos> listacasos();
 //   
 //
-//    @Query(value = "select count(ca.estado) as total from casos ca where ca.estado = 'Leve' ", nativeQuery = true)
-//    long activos(String estado);
-//    
+    @Query(value = "select count(ca.id) as total from casos ca where ca.municipio ='BOGOTA' ", nativeQuery = true)
+    long casosciudad();
+    
+    @Query(value = "select count(ca.id) as total from casos ca where ca.municipio ='CALI' ", nativeQuery = true)
+    long casosciudad1();
+    
+    @Query(value = "select count(ca.id) as total from casos ca where ca.municipio ='MEDELLIN' ", nativeQuery = true)
+    long casosciudad2();
+    
+    @Query(value = "select count(ca.id) as total from casos ca where ca.municipio ='PASTO' ", nativeQuery = true)
+    long casosciudad3();
+    
+    @Query(value = "select count(ca.id) as total from casos ca where ca.municipio ='CARTAGENA' ", nativeQuery = true)
+    long casosciudad4();
+    
+    
     long countByestado(String estado);
     long countByrecuperado(String recuperado);
     
