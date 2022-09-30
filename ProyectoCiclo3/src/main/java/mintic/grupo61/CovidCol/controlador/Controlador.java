@@ -99,16 +99,38 @@ public class Controlador {
         String estado = "Leve";
         String estado1 = "Fallecido";
         String estado2 = "Recuperado";
+        String ciudad1 = "Bogota";
+        String ciudad2 = "Cali";
+        String ciudad3 = "Medellin";
+        String ciudad4 = "Pasto";
+        String ciudad5 = "Cartagena";
+        
         long caso1 = casosRepository.countByestado(estado);
         long caso2 = casosRepository.countByestado(estado1);
         long recuperados = casosRepository.countByrecuperado(estado2);
-        long confirmados = caso1 + caso2;
+        long casociudad = casosRepository.casosciudad();
+        long casociudad1 = casosRepository.casosciudad1();
+        long casociudad2 = casosRepository.casosciudad2();
+        long casociudad3 = casosRepository.casosciudad3();
+        long casociudad4 = casosRepository.casosciudad4();
+        
+        long confirmados = casosRepository.count();
         long activos = confirmados - recuperados;
+        modelo.addAttribute("casociudad", casociudad );
+        modelo.addAttribute("casociudad1", casociudad1 );
+        modelo.addAttribute("casociudad2", casociudad2 );
+        modelo.addAttribute("casociudad3", casociudad3 );
+        modelo.addAttribute("casociudad4", casociudad4 );      
+        modelo.addAttribute("ciudad1", ciudad1 );
+        modelo.addAttribute("ciudad2", ciudad2 );
+        modelo.addAttribute("ciudad3", ciudad3 );
+        modelo.addAttribute("ciudad4", ciudad4 );
+        modelo.addAttribute("ciudad5", ciudad5 );       
         modelo.addAttribute("activos", activos);
         modelo.addAttribute("confirmados", confirmados);
         modelo.addAttribute("fallecidos", caso2);
         modelo.addAttribute("recuperado", recuperados );
-
+        
         modelo.addAttribute("listaciudad", ciudadImpl.buscarultimo());
 
         return "ciudad";
@@ -143,7 +165,7 @@ public class Controlador {
         long casociudad3 = casosRepository.casosciudad3();
         long casociudad4 = casosRepository.casosciudad4();
         
-        long confirmados = caso1 + caso2;
+        long confirmados = casosRepository.count();
         long activos = confirmados - recuperados;
         modelo.addAttribute("casociudad", casociudad );
         modelo.addAttribute("casociudad1", casociudad1 );

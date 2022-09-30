@@ -32,6 +32,7 @@ public interface casosRepository extends CrudRepository<Casos, Long>
     @Query(value = "select count(ca.id) as total from casos ca where ca.municipio ='CARTAGENA' ", nativeQuery = true)
     long casosciudad4();
     
+    
     long countByestado(String estado);
     long countByrecuperado(String recuperado);
     
