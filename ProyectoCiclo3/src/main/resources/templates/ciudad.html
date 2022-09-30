@@ -396,9 +396,14 @@
         </svg>
     </div> -->
     
-     <div>
-        <canvas id="myChart"></canvas>
+     <div class="container mx-auto">
+        <div class="row">
+            <canvas id="myChart"></canvas>
+        </div>
+       
       </div>
+
+
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script>
         const labels = [
@@ -429,7 +434,7 @@
       <script>
         const myChart = new Chart(
           document.getElementById('myChart'),
-          config
+        config
         );
       </script>
 
