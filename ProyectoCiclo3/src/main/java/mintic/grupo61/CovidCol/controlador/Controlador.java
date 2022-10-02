@@ -54,6 +54,8 @@ public class Controlador {
         if (milista1.size() >= 1) {
 
             Long id = milista1.get(0).getIdusuario();
+            String minombre = milista1.get(0).getNombres();
+            modelo.addAttribute("minombre",minombre);
             modelo.addAttribute("id", id);
             modelo.addAttribute("lista1", milista1);
             return "usuarioactivo";
@@ -137,7 +139,7 @@ public class Controlador {
     }
 
     // listarTodosUsuarios
-    // @GetMapping("/listausuarios")//http:localhost:8080/listaciudad
+    // @GetMapping("/listausuarios")//http:localhost:8080/listausuarios
     // public String listausuarios(Model modelo)
     // {
     // modelo.addAttribute("listausuarios", usuarioImpl.consultausuario1());

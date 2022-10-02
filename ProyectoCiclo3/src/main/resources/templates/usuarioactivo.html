@@ -8,6 +8,7 @@
         <link th:href="@{/css/normalize.css}" rel="stylesheet">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+            <script type="text/javascript" th:src= "@{/js/procesos.js}"  charset = "utf-8"></script>     
         <title>Datos</title>
     </head>
     <body class="color-body body">
@@ -52,10 +53,17 @@
                         <div class="row h-auto">
                             <div class="col-12 h-auto text-center">
                                 <article>
-                                    <a href="#">
+                                    <a <a th:href= "@{/editarusuario/{Idusuario}(Idusuario = ${id})}"> Editar </a> <br>
+                                    <a <a th:href= "@{/}"> Salir </a>
+                                    
                                         <span class="material-symbols-outlined mt-3 mb-3" style="font-size: 50px;">
                                             power_rounded
-                                            </span>
+                                        </span>
+                                        <span  id = "nombre1" th:text="${minombre}">
+                                         <!-- <script script  th:inline="javascript">
+                                            buscarnombre()                                       
+                                          </script> -->
+                                        </span>  
                                     </a>
                                 </article>
                             </div>
@@ -107,7 +115,11 @@
                                 
                                 <div class="col-12 col-md-3">
                                     <!--USUARIO:</br>--> 
-                                    <input type="hidden" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="usuario" th:value = "${id}"> </br> 
+                                    <input type="hidden" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="usuario" th:value = "${id}" id="usuario"> </br>                                     
+                                    <script script  th:inline="javascript">
+                                        buscarusuario()
+                                        
+                                    </script>
                                 </div>
         
                            
