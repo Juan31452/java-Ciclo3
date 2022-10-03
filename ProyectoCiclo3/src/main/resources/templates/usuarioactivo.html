@@ -89,46 +89,49 @@
                             <form method="POST" th:action="@{/guardarciudad}" >
                                 <h2 class="m-2 mb-4">Datos de Viaje</h2>
                                 <main class="container">
-                                    <div class="row">
-    
-                                <div class="col-12 col-md-3">
-                                    
-                                    CIUDAD ACTUAL:</br> 
-                                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="ciudad_actual"></br>
-                                </div>
-    
-    
-                                <div class="col-12 col-md-3">
-                                    CIUDAD DESTINO:</br> 
-                              <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="ciudad_destino"></br>
-                                </div>
-                             
-                                <div class="col-12 col-md-3">
-                                    VACUNAS:</br> 
-                                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="numero_vacunas"></br>
-                                </div>
-    
-                                <div class="col-12 col-md-3">
-                                    SINTOMAS:</br> 
-                                    <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="sintomas"></br> 
-                                </div>
+                                <div class="row">
                                 
-                                <div class="col-12 col-md-3">
-                                    <!--USUARIO:</br>--> 
-                                    <input type="hidden" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="usuario" th:value = "${id}" id="usuario"> </br>                                     
-                                    <script script  th:inline="javascript">
-                                        buscarusuario()
-                                        
-                                    </script>
-                                </div>
-        
-                           
-                                <div class="col-12">
-                                    <button class="btn btn-primary mt-4 text-white">Agregar</button>
-                                </div>
-                                   
-                             
-                             
+                                    <div class="col-12 col-md-3">
+
+                                     FECHA:</br> 
+                                        <input type="date" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="fecha"></br>
+                                    </div>
+
+                                    <div class="col-12 col-md-3">
+
+                                        CIUDAD ACTUAL:</br> 
+                                        <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="ciudad_actual"></br>
+                                    </div>
+
+
+                                    <div class="col-12 col-md-3">
+                                        CIUDAD DESTINO:</br> 
+                                  <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="ciudad_destino"></br>
+                                    </div>
+
+                                    <div class="col-12 col-md-3">
+                                        VACUNAS:</br> 
+                                        <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="numero_vacunas"></br>
+                                    </div>
+
+                                    <div class="col-12 col-md-3">
+                                        SINTOMAS:</br> 
+                                        <input type="text" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="sintomas"></br> 
+                                    </div>
+
+                                    <div class="col-12 col-md-3">
+                                        <!--USUARIO:</br>--> 
+                                        <input type="hidden" class="formulario form-control border-primary rounded-4 mb-2  border border-3"  name="usuario" th:value = "${id}" id="usuario"> </br>                                     
+                                        <script script  th:inline="javascript">
+                                            buscarusuario()
+
+                                        </script>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <button class="btn btn-primary mt-4 text-white">Agregar</button>
+                                    </div>                             
                             </div>
                    
                         </main>
