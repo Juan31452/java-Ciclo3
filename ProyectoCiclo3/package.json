@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Juan31452/java-Ciclo3#readme",
   "dependencies": {
-    "bootstrap": "^5.2.1"
+    "bootstrap": "^5.2.1",
+    "heroku": "^7.64.0"
   }
 }
