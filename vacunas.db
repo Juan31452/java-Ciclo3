@@ -1,0 +1,28 @@
+CREATE TABLE usuarios(
+Idusuario integer NOT NULL PRIMARY KEY,
+Nombres VARCHAR(20) NOT NULL,
+Apellidos VARCHAR(20) NOT NULL,
+Pais_nacimiento VARCHAR(15) NOT NULL,
+Fecha_Nacimiento DATE NOT NULL,
+Dpto_Residencia VARCHAR(12) NOT NULL,
+Ciudad_Residencia VARCHAR(12) NOT NULL,
+Direccion VARCHAR(15),
+Tipo_Documento VARCHAR(3) NOT NULL,
+Numero_Documento VARCHAR(20) NOT NULL,
+Npasaporte VARCHAR(15) NOT NULL,
+Fecha_VencePasaporte DATE NOT NULL,
+Correo VARCHAR (20) NOT NULL,
+Contraseña VARCHAR(10) NOT NULL,
+Confirmar_Contraseña VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE ciudad (
+Id_ciudad	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+Ciudad_Actual	VARCHAR(15) NOT NULL,
+Ciudad_Destino	VARCHAR(15) NOT NULL,
+Numero_Vacunas	INTEGER NOT NULL,
+Sintomas	VARCHAR(15) NOT NULL,
+Idusuario	INTEGER NOT NULL,
+foreign key (Idusuario)  references usuarios(Idusuario) 
+);
+
